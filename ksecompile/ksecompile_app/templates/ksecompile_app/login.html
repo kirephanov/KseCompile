@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KseCompile | C++ Online Compiler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/KseCompile_icon.ico' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="wrapper">
+            <div class="header">
+                <div class="header-logo">
+                    <a href="{% url 'home' %}" class="header-logo__link"><img src="{% static 'images/logo.svg' %}" alt="KseCompile" class="header-logo__img"></a>
+                </div>
+                <div class="header-link">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'home' %}" class="header-link__item user">{{ user.username }}</a>
+                        <a href="{% url 'logout' %}" class="header-link__item logout">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="header-link__item login">Login</a>
+                        <a href="{% url 'register' %}" class="header-link__item register">Sign up</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login -->
+    <section>
+        <div class="login-card">
+            <div class="wrapper">
+                <div class="authorization-card">
+                    <p class="authorization__title">Login</p>
+                    <div class="authorization__form">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="authorization-btn" type="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="wrapper">
+            <div class="footer">
+                <div class="footer-top">
+                    <p class="footer__watermark">Compiling with <span><a href="http://coliru.stacked-crooked.com" target="_blank" class="footer__watermark-link">Coliru</a></span></p>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-bottom__description">&#169 2022 KseCompile. All rights reserved.</p>
+                    <p class="footer__watermark">Made by <span><a href="https://github.com/kirephanov" target="_blank" class="footer__watermark-link">Kirill Ephanov</a></span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/ace/ace.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/run.js"></script>
+</body>
+</html>
