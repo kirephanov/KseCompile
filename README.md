@@ -6,12 +6,12 @@
 
 ### KseCompile code editor:
 <p>
-<img src="https://imgbox.com/cRqRGhga"  title="Code editor" alt="Code editor" width="500"/>&nbsp;
+<img src="resources/ksecompile1.PNG"  title="Code editor" alt="Code editor" width="500"/>&nbsp;
 </p>
 
 ### Code compilation:
 <p>
-<img src="https://imgbox.com/cRqRGhga"  title="Code compilation" alt="Code compilation" width="300"/>&nbsp;
+<img src="resources/ksecompile2.PNG"  title="Code compilation" alt="Code compilation" width="300"/>&nbsp;
 </p>
 
 ---
